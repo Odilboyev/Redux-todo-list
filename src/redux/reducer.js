@@ -58,6 +58,14 @@ const reducer = (state = initialState, action) => {
             console.log(editingType);
 
             return { ...state, values, editingType: editingType }
+
+        case "DELETE_ALL":
+            let deletedState = []
+            return deletedState
+        case "DELETE_COMPLETED":
+            let finishedTasks = [...state.tasks].filter(item => !item.complete)
+            return { tasks: finishedTasks }
+
         default:
             return state
     }

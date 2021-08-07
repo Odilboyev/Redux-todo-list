@@ -83,6 +83,23 @@ const TodoRedux = (props) => {
     }
     // editing
 
+    const deleteAll = () => {
+        const action = {
+            type: "DELETE_ALL"
+        }
+        dispatch(action)
+    }
+
+    const deleteCompleted = () => {
+        const action = {
+            type: "DELETE_COMPLETED"
+        }
+        dispatch(action)
+    }
+
+    let completed = 0
+    let uncompleted = 0
+
     return (
         <div className="rounded overflow-hidden shadow p-3 bg-light">
             <h2>TodoRedux App</h2>
@@ -109,7 +126,11 @@ const TodoRedux = (props) => {
 
             <ListGroup>
                 {
-                    todos.map((item, index) => {
+                    todos?.map((item, index) => {
+
+                        if (item.complete) {
+                            completed++
+                        } else uncompleted++
 
                         return <ListGroupItem tag="a" href="#" className="w-100 d-flex align-items-center justify-content-between" key={index} action>
 
@@ -154,7 +175,28 @@ const TodoRedux = (props) => {
                         </ListGroupItem>
                     })
                 }
+
+
+                <ListGroupItem tag="a" href="#" action className="d-flex justify-content-between" >
+
+                    <ListGroupItem tag="a" href="#" action className="text-center" onClick={deleteCompleted} >
+                        <p>Delete Completed</p>
+                    </ListGroupItem>
+
+                    <ListGroupItem tag="a" href="#" action className="text-center" onClick={deleteAll}>
+                        <p>Delete All</p>
+                    </ListGroupItem>
+
+                </ListGroupItem>
+                <ListGroupItem tag="a" href="#" action className="text-center" onClick={deleteAll}>
+                    <p>Completed: {completed}</p>
+                    <p>Uncompleted: {uncompleted}</p>
+                    <p>All: {todos.length}</p>
+                </ListGroupItem>
+
             </ListGroup>
+
+
         </div>
     )
 
