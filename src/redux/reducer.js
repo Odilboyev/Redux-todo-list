@@ -61,7 +61,8 @@ const reducer = (state = initialState, action) => {
 
         case "DELETE_ALL":
             let deletedState = []
-            return deletedState
+            return { ...state.tasks, tasks: deletedState }
+
         case "DELETE_COMPLETED":
             let finishedTasks = [...state.tasks].filter(item => !item.complete)
             return { tasks: finishedTasks }

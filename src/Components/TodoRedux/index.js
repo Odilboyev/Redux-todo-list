@@ -128,9 +128,9 @@ const TodoRedux = (props) => {
                 {
                     todos?.map((item, index) => {
 
-                        if (item.complete) {
-                            completed++
-                        } else uncompleted++
+                        // if (item.complete) {
+                        //     completed++
+                        // } else uncompleted++
 
                         return <ListGroupItem tag="a" href="#" className="w-100 d-flex align-items-center justify-content-between" key={index} action>
 
