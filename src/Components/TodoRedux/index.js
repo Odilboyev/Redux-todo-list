@@ -191,7 +191,7 @@ const TodoRedux = (props) => {
                 <ListGroupItem tag="a" href="#" action className="text-center" onClick={deleteAll}>
                     <p>Completed: {completed}</p>
                     <p>Uncompleted: {uncompleted}</p>
-                    <p>All: {todos.length}</p>
+                    <p>All: {todos?.length}</p>
                 </ListGroupItem>
 
             </ListGroup>
