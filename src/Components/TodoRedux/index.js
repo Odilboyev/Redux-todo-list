@@ -4,6 +4,7 @@ import React from 'react'
 import { Button, Input, } from 'reactstrap';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import TodoWrapper from './TodoWrapper';
 
 
 
@@ -102,7 +103,7 @@ const TodoRedux = (props) => {
     let uncompleted = 0
 
     return (
-        <div className="rounded overflow-hidden shadow p-3 bg-light">
+        <TodoWrapper>
             <h2>TodoRedux App</h2>
 
             <form className="d-flex align-items-center  mb-3 w-100" onSubmit={add}>
@@ -185,7 +186,7 @@ const TodoRedux = (props) => {
                     </ListGroupItem>
 
                 </ListGroupItem>
-                <ListGroupItem tag="a" href="#" action className="text-center" onClick={deleteAll}>
+                <ListGroupItem tag="a" href="#" action className="text-center d-flex justify-content-between" onClick={deleteAll}>
                     <p>Completed: {completed}</p>
                     <p>Uncompleted: {uncompleted}</p>
                     <p>All: {todos?.length}</p>
@@ -194,7 +195,7 @@ const TodoRedux = (props) => {
             </ListGroup>
 
 
-        </div>
+        </TodoWrapper>
     )
 
 }

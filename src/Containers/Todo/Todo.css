@@ -1,9 +1,0 @@
-.list-group-item{
-    position: relative;
-    margin: 5px 0;
-}
-.list-group-item button {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
