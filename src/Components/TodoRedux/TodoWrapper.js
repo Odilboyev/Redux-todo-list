@@ -19,10 +19,7 @@ padding: 50px;
     color: #6944ff;
 }
 
-@media (max-width: 865px){
-    width: 80%;
-    padding: 20px;
-}
+
 
 .gr-btn{
     padding: 10px 0;
@@ -85,6 +82,39 @@ padding: 50px;
 
 .hoverbtn:hover{
     transform: scale(1.1);
+}
+.todo-title{
+    padding: 0 50px;
+}
+@media (max-width: 860px){
+    width: 80%;
+    padding: 20px;
+
+    .wrapperHoverBtn{
+        width: 40%;
+        margin: 20px auto;
+        opacity: 1;
+        transform: translateY(0);
+        height: 20px;
+    }
+    .todo-title{
+        margin: 20px auto;
+    }
+    .gr-btn{
+        width: 100%;
+    }
+}
+
+@media (max-width: 565px){
+
+    .wrapperHoverBtn{
+        width: 70%;
+    }
+
+    .todo-title{
+        margin: 20px auto;
+        padding: 0 20px;
+    }
 }
 `
 export default TodoWrapper

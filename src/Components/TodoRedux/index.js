@@ -159,12 +159,11 @@ const TodoRedux = (props) => {
                                     <>
                                         <p style={{
                                             textDecoration: item.complete ? "line-through" : "none",
-                                            margin: 0,
                                             color: item.complete ? blue : "#202020",
 
-                                        }}>{index + 1}.  {item.title}</p>
+                                        }} className="todo-title" >{index + 1}.  {item.title}</p>
 
-                                        <div className="wrapperHoverBtn  d-flex justify-content-between align-items-center" >
+                                        <div className="wrapperHoverBtn d-flex justify-content-between align-items-center" >
 
                                             <div className=" hoverbtn" onClick={() => startEditing(index)}>
                                                 <AiTwotoneEdit />
@@ -191,15 +190,17 @@ const TodoRedux = (props) => {
                     <p>All: {todos?.length}</p>
                 </ListGroupItem>
 
-                <ListGroupItem className="d-flex flex-wrap justify-content-between" >
-
-                    <div className="d-flex justify-content-center gr-btn blue" onClick={deleteCompleted} >
+                <ListGroupItem className=" justify-content-between" >
+                    <div className="row">
+                        <div className="col-md-6 col-sm-12 d-flex justify-content-center gr-btn blue" onClick={deleteCompleted} >
                         <p>Delete Completed</p>
                     </div>
 
-                    <div className="d-flex justify-content-center gr-btn red" onClick={deleteAll}>
+                        <div className="col-md-6 col-sm-12 d-flex justify-content-center gr-btn red" onClick={deleteAll}>
                         <p>Delete All</p>
                     </div>
+                    </div>
+
 
                 </ListGroupItem>
 
