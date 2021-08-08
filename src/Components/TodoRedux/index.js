@@ -25,7 +25,8 @@ const TodoRedux = (props) => {
     }
 
 
-    const add = () => {
+    const add = (e) => {
+        e.preventDefault()
         if (value === "") {
             alert('Please write a task')
         } else {
@@ -70,7 +71,7 @@ const TodoRedux = (props) => {
             payload: index
         }
         dispatch(action)
-        console.log(action);
+        return
     }
 
     const startEditing = (index) => {
@@ -79,7 +80,7 @@ const TodoRedux = (props) => {
             payload: index
         }
         dispatch(action)
-        console.log(action);
+
     }
     // editing
 
@@ -104,7 +105,7 @@ const TodoRedux = (props) => {
         <div className="rounded overflow-hidden shadow p-3 bg-light">
             <h2>TodoRedux App</h2>
 
-            <div className="d-flex align-items-center  mb-3 w-100">
+            <form className="d-flex align-items-center  mb-3 w-100" onSubmit={add}>
                 <Input
                     type="text"
                     placeholder="New Task"
@@ -116,13 +117,10 @@ const TodoRedux = (props) => {
                 <Button
                     color="primary"
                     className="float-right"
-                    onClick={add}
-                    id="btn"
                 >
                     <AiOutlinePlus color="white" fontWeight="600" fontSize="1.5rem" />
                 </Button>
-
-            </div>
+            </form>
 
             <ListGroup>
                 {
@@ -136,7 +134,7 @@ const TodoRedux = (props) => {
 
                             {
                                 item.editing ?
-                                    <>
+                                    <form onSubmit={() => setEdited(index)} className="w-100 d-flex align-items-center justify-content-between">
                                         <Input
                                             type="text"
                                             placeholder="New Task"
@@ -147,11 +145,10 @@ const TodoRedux = (props) => {
                                         <Button
                                             color="primary"
                                             className="float-right"
-                                            onClick={() => setEdited(index)}
                                         >
                                             Save
                                         </Button>
-                                    </>
+                                    </form>
                                     :
 
                                     <>
