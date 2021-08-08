@@ -58,6 +58,19 @@ const TodoRedux = (props) => {
 
 
     // editing
+    const startEditing = (index) => {
+        if (editingType) {
+            return
+        } else {
+            const action = {
+                type: "START_EDITING",
+                payload: index
+            }
+            dispatch(action)
+        }
+
+
+    }
     const editItem = (e) => {
         const action = {
             type: "EDIT",
@@ -75,14 +88,7 @@ const TodoRedux = (props) => {
         return
     }
 
-    const startEditing = (index) => {
-        const action = {
-            type: "START_EDITING",
-            payload: index
-        }
-        dispatch(action)
 
-    }
     // editing
 
     const deleteAll = () => {
