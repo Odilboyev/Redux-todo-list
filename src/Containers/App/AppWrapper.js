@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 const AppWrapper = styled.div`
-background-image: url('back.jpg');
+background-image: linear-gradient(to right bottom, #00000060, #00000010), url('back.jpg');
 background-position: center;
 background-size: cover;
 height: 100%;

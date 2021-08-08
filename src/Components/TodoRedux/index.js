@@ -131,11 +131,11 @@ const TodoRedux = (props) => {
                             completed++
                         } else uncompleted++
 
-                        return <ListGroupItem tag="a" href="#" className="w-100 d-flex align-items-center justify-content-between" key={index} action>
+                        return <ListGroupItem tag="a" href="#" className="my-1 w-100 d-flex flex-wrap text-center align-items-center justify-content-between" key={index} action>
 
                             {
                                 item.editing ?
-                                    <form onSubmit={() => setEdited(index)} className="w-100 d-flex align-items-center justify-content-between">
+                                    <form onSubmit={() => setEdited(index)} className="w-100 flex-wrap d-flex align-items-center justify-content-between">
                                         <Input
                                             type="text"
                                             placeholder="New Task"
@@ -175,7 +175,7 @@ const TodoRedux = (props) => {
                 }
 
 
-                <ListGroupItem tag="a" href="#" action className="d-flex justify-content-between" >
+                <ListGroupItem tag="a" href="#" action className="d-flex flex-wrap justify-content-between" >
 
                     <ListGroupItem tag="a" href="#" action className="text-center" onClick={deleteCompleted} >
                         <p>Delete Completed</p>
@@ -186,7 +186,7 @@ const TodoRedux = (props) => {
                     </ListGroupItem>
 
                 </ListGroupItem>
-                <ListGroupItem tag="a" href="#" action className="text-center d-flex justify-content-between" onClick={deleteAll}>
+                <ListGroupItem tag="a" href="#" action className="text-center flex-wrap d-flex justify-content-between" onClick={deleteAll}>
                     <p>Completed: {completed}</p>
                     <p>Uncompleted: {uncompleted}</p>
                     <p>All: {todos?.length}</p>
