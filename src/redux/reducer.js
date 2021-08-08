@@ -20,7 +20,7 @@ const initialState = {
         {
             complete: true,
             editing: false,
-            title: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam aperiam unde perspiciatis excepturi ut ipsum? Hic dolor obcaecati in ullam iusto cumque ipsam aut quidem reprehenderit, autem praesentium culpa. Doloribus!"
+            title: "Lorem ipsum dolor sit amet consectetur,"
         },
     ]
 }
