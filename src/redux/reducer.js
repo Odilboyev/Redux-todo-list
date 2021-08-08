@@ -3,7 +3,7 @@ const initialState = {
     editingType: "",
     tasks: [
         {
-            complete: true,
+            complete: false,
             editing: false,
             title: "ac facilisis in"
         },
@@ -16,6 +16,11 @@ const initialState = {
             complete: false,
             editing: false,
             title: "Porta ac consectetur ac"
+        },
+        {
+            complete: true,
+            editing: false,
+            title: "Lorem ac consectetur ipsum"
         },
     ]
 }

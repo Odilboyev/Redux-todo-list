@@ -1,10 +1,10 @@
-import { AiOutlineCheckSquare, AiOutlineMinusSquare, AiOutlinePlus, AiTwotoneEdit } from 'react-icons/ai';
+import { AiFillSave, AiOutlineCheckSquare, AiOutlineMinusSquare, AiOutlinePlus, AiTwotoneEdit } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
 import React from 'react'
 import { Button, Input, } from 'reactstrap';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import TodoWrapper from './TodoWrapper';
+import TodoWrapper, { blue } from './TodoWrapper';
 
 
 
@@ -104,7 +104,7 @@ const TodoRedux = (props) => {
 
     return (
         <TodoWrapper>
-            <h2>TodoRedux App</h2>
+            <h2 className="title" >TodoRedux App</h2>
 
             <form className="d-flex align-items-center  mb-3 w-100" onSubmit={add}>
                 <Input
@@ -116,7 +116,7 @@ const TodoRedux = (props) => {
                 />
 
                 <Button
-                    color="primary"
+                    style={{ background: blue }}
                     className="float-right"
                 >
                     <AiOutlinePlus color="white" fontWeight="600" fontSize="1.5rem" />
@@ -131,15 +131,13 @@ const TodoRedux = (props) => {
                             completed++
                         } else uncompleted++
 
-                        return <ListGroupItem tag="a" href="#" className="my-1 w-100 d-flex flex-wrap text-center align-items-center justify-content-between" key={index} action>
+                        return <ListGroupItem className="my-1 w-100 d-flex flex-wrap text-center align-items-center justify-content-between" key={index}>
 
                             {
                                 item.editing ?
-                                    <form onSubmit={() => setEdited(index)} className="w-100 flex-wrap d-flex align-items-center justify-content-between">
+                                    <form onSubmit={() => setEdited(index)} className="w-100 d-flex align-items-center justify-content-between">
                                         <Input
                                             type="text"
-                                            placeholder="New Task"
-                                            className="me-2"
                                             value={editingType}
                                             onChange={editItem}
                                         />
@@ -147,25 +145,32 @@ const TodoRedux = (props) => {
                                             color="primary"
                                             className="float-right"
                                         >
-                                            Save
+                                            <AiFillSave />
                                         </Button>
                                     </form>
                                     :
 
                                     <>
-                                        <p style={{ textDecoration: item.complete ? "line-through" : "none" }}>{index + 1}.  {item.title}</p>
+                                        <p style={{
+                                            textDecoration: item.complete ? "line-through" : "none",
+                                            margin: 0,
+                                            color: item.complete ? blue : "#202020",
 
-                                        <div>
-                                            <Button className="me-2" onClick={() => startEditing(index)}><AiTwotoneEdit color="white" fontWeight="600" fontSize="1.5rem" /></Button>
+                                        }}>{index + 1}.  {item.title}</p>
 
-                                            <Button color="success me-2" onClick={() => setComplete(index)}>
-                                                {item.complete ? <AiOutlineCheckSquare color="white" fontWeight="600" fontSize="1.5rem" /> : <AiOutlineMinusSquare color="white" fontWeight="600" fontSize="1.5rem" />}
+                                        <div className="wrapperHoverBtn  d-flex justify-content-between align-items-center" >
 
-                                            </Button>
+                                            <div className=" hoverbtn" onClick={() => startEditing(index)}>
+                                                <AiTwotoneEdit />
+                                            </div>
 
-                                            <Button onClick={() => deleteTask(index)} color="danger">
-                                                <BsTrash color="white" fontWeight="600" fontSize="1.5rem" />
-                                            </Button></div>
+                                            <div className={`hoverbtn ${item.complete ? 'fill' : 'none'}`} onClick={() => setComplete(index)}> </div>
+
+                                            <div className="hoverbtn" onClick={() => deleteTask(index)} color="danger">
+                                                <BsTrash />
+                                            </div>
+
+                                        </div>
                                     </>
                             }
 
@@ -174,23 +179,24 @@ const TodoRedux = (props) => {
                     })
                 }
 
-
-                <ListGroupItem tag="a" href="#" action className="d-flex flex-wrap justify-content-between" >
-
-                    <ListGroupItem tag="a" href="#" action className="text-center" onClick={deleteCompleted} >
-                        <p>Delete Completed</p>
-                    </ListGroupItem>
-
-                    <ListGroupItem tag="a" href="#" action className="text-center" onClick={deleteAll}>
-                        <p>Delete All</p>
-                    </ListGroupItem>
-
-                </ListGroupItem>
-                <ListGroupItem tag="a" href="#" action className="text-center flex-wrap d-flex justify-content-between" onClick={deleteAll}>
+                <ListGroupItem className="text-center flex-wrap d-flex justify-content-between" onClick={deleteAll}>
                     <p>Completed: {completed}</p>
                     <p>Uncompleted: {uncompleted}</p>
                     <p>All: {todos?.length}</p>
                 </ListGroupItem>
+
+                <ListGroupItem className="d-flex flex-wrap justify-content-between" >
+
+                    <div className="d-flex justify-content-center gr-btn blue" onClick={deleteCompleted} >
+                        <p>Delete Completed</p>
+                    </div>
+
+                    <div className="d-flex justify-content-center gr-btn red" onClick={deleteAll}>
+                        <p>Delete All</p>
+                    </div>
+
+                </ListGroupItem>
+
 
             </ListGroup>
 
