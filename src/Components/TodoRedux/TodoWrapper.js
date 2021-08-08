@@ -7,6 +7,7 @@ export const blueGradient = 'linear-gradient(45deg, #1da1f2,#0e71c8)'
 export const redGradient = "linear-gradient(45deg, #d5135a, #f05924)"
 
 const TodoWrapper = styled.div`
+
 width: 60%;
 margin: auto;
 background: #fff;
@@ -73,13 +74,17 @@ padding: 50px;
     background: transparent;
     border: 2px solid ${blue};
 }
-.hoverbtn.fill:hover{
+.hoverbtn.fill{
     background-image: ${blueGradient};
 }
 
-.hoverbtn:last-child:hover{
+.hoverbtn:last-child{
     background-image: ${redGradient};
 
+}
+
+.hoverbtn:hover{
+    transform: scale(1.1);
 }
 `
 export default TodoWrapper
