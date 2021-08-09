@@ -9,11 +9,13 @@ export const redGradient = "linear-gradient(45deg, #d5135a, #f05924)"
 const TodoWrapper = styled.div`
 
 width: 60%;
-margin: auto;
+margin: 50px auto;
 background: #fff;
 backdrop-filter: blur(8px);
 border-radius: 15px;
 padding: 50px;
+box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.42);
+
 
 .title{
     color: #6944ff;
@@ -83,9 +85,6 @@ padding: 50px;
 .hoverbtn:hover{
     transform: scale(1.1);
 }
-.todo-title{
-    padding: 0 50px;
-}
 @media (max-width: 860px){
     width: 80%;
     padding: 20px;
@@ -99,6 +98,8 @@ padding: 50px;
     }
     .todo-title{
         margin: 20px auto;
+    padding: 0 50px;
+
     }
     .gr-btn{
         width: 100%;
