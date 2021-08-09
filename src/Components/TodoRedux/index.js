@@ -184,7 +184,7 @@ const TodoRedux = (props) => {
                     })
                 }
 
-                <ListGroupItem className="text-center flex-wrap d-flex justify-content-between" onClick={deleteAll}>
+                <ListGroupItem className="text-center flex-wrap d-flex justify-content-between" >
                     <p>Completed: {completed}</p>
                     <p>Uncompleted: {uncompleted}</p>
                     <p>All: {todos?.length}</p>
